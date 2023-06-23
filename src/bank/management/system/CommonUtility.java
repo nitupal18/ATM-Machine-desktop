@@ -99,6 +99,8 @@ public class CommonUtility {
      */
     public void for_text_field(JTextField textField, int x, int y, int width, int height){
         textField.setBounds(x,y,width,height);
+        Font font = new Font("Arial", Font.PLAIN, 23);
+        textField.setFont(font);
     }
     /**
      * 

@@ -5,41 +5,8 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class SignUp2 extends JFrame implements ActionListener {
-
-   /**
-    * 
-    * @param text
-    * @param font
-    * @param x
-    * @param y
-    * @param width
-    * @param height 
-    * it helps to locate an text on the page
-    */
     
-    public void form_details_locator(JLabel text, int font, int x, int y, int width, int height) {
-        text.setFont(new Font("Raleway", Font.BOLD, font));
-        text.setBounds(x, y, width, height);
-        add(text);
-    }
-
-    public void for_text_field(JTextField textField, int x, int y, int width, int height) {
-        textField.setBounds(x, y, width, height);
-        add(textField);
-    }
-
-    public void radio_button_style(JRadioButton button, int x, int y, int width, int height) {
-        button.setBounds(x, y, width, height);
-        button.setBackground(Color.WHITE);
-        add(button);
-    }
-
-    public void dropdown_style(JComboBox dropdown, String[] items, int x, int y, int width, int height) {
-        dropdown = new JComboBox<>(items);
-        dropdown.setBounds(x, y, width, height);
-        dropdown.setBackground(Color.WHITE);
-        add(dropdown);
-    }
+    CommonUtility utility=new CommonUtility();
 
     //variables defination
     JLabel page_2 = new JLabel("Page 2: Additional Details");
@@ -98,59 +65,74 @@ public class SignUp2 extends JFrame implements ActionListener {
         add(text);
         
         // Page title
-        form_details_locator(page_2, 20, 300, 50, 300, 30);
-
-        form_details_locator(religion, 18, 150, 90, 100, 30);
+        utility.form_details_locator(page_2, 20, 300, 50, 300, 30);
+        add(page_2);
+        utility.form_details_locator(religion, 18, 150, 90, 100, 30);
+        add(religion);
         String[] s1 = {"Hindu", "Islamic", "Cristian", "Sikkh"};
         religion_dropdown = new JComboBox<>(s1);
         religion_dropdown.setBounds(400, 90, 300, 30);
         System.out.println(religion_dropdown);
         add(religion_dropdown);
 
-        form_details_locator(category, 18, 150, 130, 100, 30);
+        utility.form_details_locator(category, 18, 150, 130, 100, 30);
+        add(category);
         String[] s2 = {"General", "OBC", "SC", "ST", "ST"};
         category_dropdown = new JComboBox<>(s2);
         category_dropdown.setBounds(400, 130, 300, 30);
         add(category_dropdown);
 
-        form_details_locator(income, 18, 150, 170, 100, 30);
+        utility.form_details_locator(income, 18, 150, 170, 100, 30);
+        add(income);
         String[] s3 = {"<100000", "100000>= & <500000", ">=1000000"};
         income_dropdown = new JComboBox<>(s3);
         income_dropdown.setBounds(400, 170, 300, 30);
         add(income_dropdown);
         // dropdown_style(income_dropdown,s3,400,170,300,30);
 
-        form_details_locator(education, 18, 150, 210, 100, 30);
+        utility.form_details_locator(education, 18, 150, 210, 100, 30);
+        add(education);
         String[] s4 = {"Graduation", "Post Graduation", "High School"};
         education_dropdown = new JComboBox<>(s4);
         education_dropdown.setBounds(400, 210, 300, 30);
         add(education_dropdown);
         //dropdown_style(education_dropdown,s4,400,210,300,30);
 
-        form_details_locator(occupation, 18, 150, 250, 200, 30);
+        utility.form_details_locator(occupation, 18, 150, 250, 200, 30);
+        add(occupation);
         String[] s5 = {"Government Employee", "Buisness Owner", "Private Job", "Unemployeed"};
         occupation_dropdown = new JComboBox<>(s5);
         occupation_dropdown.setBounds(400, 250, 300, 30);
         add(occupation_dropdown);
         //dropdown_style(occupation_dropdown,s5,400,250,300,30);
 
-        form_details_locator(pan_number, 18, 150, 290, 200, 30);
-        for_text_field(pan_number_field, 400, 290, 300, 30);
+        utility.form_details_locator(pan_number, 18, 150, 290, 200, 30);
+        add(pan_number);
+        utility.for_text_field(pan_number_field, 400, 290, 300, 30);
+        add(pan_number_field);
 
-        form_details_locator(aadhar_no, 18, 150, 330, 200, 30);
-        for_text_field(aadhar_no_field, 400, 330, 300, 30);
+        utility.form_details_locator(aadhar_no, 18, 150, 330, 200, 30);
+        add(aadhar_no);
+        utility.for_text_field(aadhar_no_field, 400, 330, 300, 30);
+        add(aadhar_no_field);
 
-        form_details_locator(sr_citizen, 18, 150, 370, 200, 30);
-        radio_button_style(yes, 400, 370, 100, 30);
-        radio_button_style(no, 550, 370, 100, 30);
+        utility.form_details_locator(sr_citizen, 18, 150, 370, 200, 30);
+        add(sr_citizen);
+        utility.radio_button_style(yes, 400, 370, 100, 30);
+        add(yes);
+        utility.radio_button_style(no, 550, 370, 100, 30);
+        add(no);
         sr_citizen_group.add(yes);
         sr_citizen_group.add(no);
 
-        form_details_locator(existing_account, 18, 150, 410, 200, 30);
-        radio_button_style(yes1, 400, 410, 100, 30);
-        radio_button_style(no1, 550, 410, 100, 30);
-        existing_account_group.add(yes);
-        existing_account_group.add(no);
+        utility.form_details_locator(existing_account, 18, 150, 410, 200, 30);
+        add(existing_account);
+        utility.radio_button_style(yes1, 400, 410, 100, 30);
+        add(yes1);
+        utility.radio_button_style(no1, 550, 410, 100, 30);
+        add(no1);
+        existing_account_group.add(yes1);
+        existing_account_group.add(no1);
 
         next.setBackground(Color.BLACK);
         next.setForeground(Color.WHITE);
@@ -199,24 +181,24 @@ public class SignUp2 extends JFrame implements ActionListener {
                 if (religion.equals("")) {
                     JOptionPane.showMessageDialog(null, "Religion is Required");
                 }
-                if (category.equals("")) {
+                else if (category.equals("")) {
                     JOptionPane.showMessageDialog(null, "Category is Required");
                 }
-                if (income.equals("")) {
+                else if (income.equals("")) {
                     JOptionPane.showMessageDialog(null, "income is Required");
                 }
-                if (education.equals("")) {
+                else if (education.equals("")) {
                     JOptionPane.showMessageDialog(null, "Select Education");
                 }
-                if (occupation.equals("")) {
+                else if (occupation.equals("")) {
                     JOptionPane.showMessageDialog(null, "Select is Occupation");
                 }
-                if (pan_number.equals("")) {
+                else if (pan_number.equals("")) {
                     JOptionPane.showMessageDialog(null, "Enter Pan Number");
                 }
-                if (aadhar_no.equals("")) {
+                else if (aadhar_no.equals("")) {
                     JOptionPane.showMessageDialog(null, "Aadhar Number is Required");
-                } else {
+                }else {
                     Conn c = new Conn();
                     String query = "insert into signup2 values('" + religion + "','" + category + "','" + income + "','" + education + "','" + occupation + "','" + pan_number + "','" + aadhar_no + "','" + sr_citizen + "','" + existing_account + "')";
                     c.s.executeUpdate(query);

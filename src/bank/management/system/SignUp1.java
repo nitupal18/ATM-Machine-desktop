@@ -13,47 +13,8 @@ import java.awt.event.*;
  */
 public class SignUp1 extends JFrame implements ActionListener {
     
-    /**
-     *
-     * @param text
-     * @param font
-     * @param x
-     * @param y
-     * @param width
-     * @param height
-     */
-    public void form_details_locator(JLabel text, int font, int x, int y, int width, int height){
-        text.setFont(new Font("Raleway",Font.BOLD,font));
-        text.setBounds(x,y,width,height);
-        add(text);
-    }
+    CommonUtility utility=new CommonUtility();
     
-    /**
-     *
-     * @param textField
-     * @param x
-     * @param y
-     * @param width
-     * @param height
-     */
-    public void for_text_field(JTextField textField, int x, int y, int width, int height){
-        textField.setBounds(x,y,width,height);
-        add(textField);
-    }
-    
-    /**
-     *
-     * @param button
-     * @param x
-     * @param y
-     * @param width
-     * @param height
-     */
-    public void radio_button_style(JRadioButton button,int x, int y, int width, int height){
-        button.setBounds(x,y,width,height);
-        button.setBackground(Color.WHITE);
-        add(button);
-    }
     
     //maths
         /**
@@ -122,32 +83,46 @@ public class SignUp1 extends JFrame implements ActionListener {
         setTitle("NEW ACCOUNT APPLICATION FORM - PAGE 1");
         
         //application number
-        form_details_locator(heading,30,200,10,500,30);
+        utility.form_details_locator(heading,30,200,10,500,30);
+        add(heading);
         //page title
-        form_details_locator(page_1,20,300,50,300,30);
+        utility.form_details_locator(page_1,20,300,50,300,30);
+        add(page_1);
         //name
-        form_details_locator(name,18,150,90,100,30);
-        for_text_field(name_field,300,90,300,30);
+        utility.form_details_locator(name,18,150,90,100,30);
+        add(name);
+        utility.for_text_field(name_field,300,90,300,30);
+        add(name_field);
         //father's name
-        form_details_locator(father_name,18,150,130,150,30);
-        for_text_field(father_name_field,300,130,300,30);
+        utility.form_details_locator(father_name,18,150,130,150,30);
+        add(father_name);
+        utility.for_text_field(father_name_field,300,130,300,30);
+        add(father_name_field);
         //date_of_birth
-        form_details_locator(date_of_birth,18,150,170,150,30);
+        utility.form_details_locator(date_of_birth,18,150,170,150,30);
+        add(date_of_birth);
         calendar.setBounds(300,170,300,30);
         add(calendar);
         //gender
-        form_details_locator(gender,18,150,210,150,30);
-        radio_button_style(male,300,210,60,30);
-        radio_button_style(female,380,210,80,30);
-        radio_button_style(other,480,210,60,30);
+        utility.form_details_locator(gender,18,150,210,150,30);
+        add(gender);
+        utility.radio_button_style(male,300,210,60,30);
+        add(male);
+        utility.radio_button_style(female,380,210,80,30);
+        add(female);
+        utility.radio_button_style(other,480,210,60,30);
+        add(other);
         gender_group.add(male);
         gender_group.add(female);
         gender_group.add(other);
         //email
-        form_details_locator(email,18,150,250,170,30);
-        for_text_field(email_field,300,250,300,30);
+        utility.form_details_locator(email,18,150,250,170,30);
+        add(email);
+        utility.for_text_field(email_field,300,250,300,30);
+        add(email_field);
         //marital_status
-        form_details_locator(marital_status,18,150,290,150,30);
+        utility.form_details_locator(marital_status,18,150,290,150,30);
+        add(marital_status);
         String[] items = { "Married", "Unmarried", "Divorced", "Widow" };
         dropdown = new JComboBox<>(items);
         dropdown.setBounds(300,290,300,30);
@@ -155,17 +130,25 @@ public class SignUp1 extends JFrame implements ActionListener {
         add(dropdown);
 
         //address
-        form_details_locator(address,18,150,330,100,30);
-        for_text_field(address_field,300,330,300,30);
+        utility.form_details_locator(address,18,150,330,100,30);
+        add(address);
+        utility.for_text_field(address_field,300,330,300,30);
+        add(address_field);
         //city
-        form_details_locator(city,18,150,370,100,30);
-        for_text_field(city_field,300,370,300,30);
+        utility.form_details_locator(city,18,150,370,100,30);
+        add(city);
+        utility.for_text_field(city_field,300,370,300,30);
+        add(city_field);
         //state
-        form_details_locator(state,18,150,410,100,30);
-        for_text_field(state_field,300,410,300,30);
+        utility.form_details_locator(state,18,150,410,100,30);
+        add(state);
+        utility.for_text_field(state_field,300,410,300,30);
+        add(state_field);
         //pin_code
-        form_details_locator(pin_code,18,150,450,100,30);
-        for_text_field(pin_code_field,300,450,300,30);
+        utility.form_details_locator(pin_code,18,150,450,100,30);
+        add(pin_code);
+        utility.for_text_field(pin_code_field,300,450,300,30);
+        add(pin_code_field);
         
         //button
         next.setBackground(Color.BLACK);
@@ -213,31 +196,31 @@ public class SignUp1 extends JFrame implements ActionListener {
           if(name.equals("")){
               JOptionPane.showMessageDialog(null,"Name is Required");
           }
-          if(father_name.equals("")){
+          else if(father_name.equals("")){
               JOptionPane.showMessageDialog(null,"Father's Name is Required");
           }
-          if(date_of_birth.equals("")){
+          else if(date_of_birth.equals("")){
               JOptionPane.showMessageDialog(null,"Date of birth is Required");
           }
-          if(gender.equals("")){
+          else if(gender.equals("")){
               JOptionPane.showMessageDialog(null,"Select Gender");
           }
-          if(email.equals("")){
+          else if(email.equals("")){
               JOptionPane.showMessageDialog(null,"Email is Required");
           } 
-          if(marital_status.equals("")){
+          else if(marital_status.equals("")){
               JOptionPane.showMessageDialog(null,"Select Marital Status");
           } 
-          if(address.equals("")){
+          else if(address.equals("")){
               JOptionPane.showMessageDialog(null,"Address is Required");
           } 
-          if(city.equals("")){
+          else if(city.equals("")){
               JOptionPane.showMessageDialog(null,"City Name is Required");
           } 
-          if(state.equals("")){
+          else if(state.equals("")){
               JOptionPane.showMessageDialog(null,"State Name is Required");
           }
-          if(pin_code.equals("")){
+          else if(pin_code.equals("")){
               JOptionPane.showMessageDialog(null,"Pincoe is Required");
           }
           else{
